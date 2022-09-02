@@ -1,11 +1,45 @@
 import AnimeContext from "./Animecontext";
 
-import React from "react";
-
+import React, { useState } from "react";
+var url = "https://animeapi-demo.herokuapp.com";
 const AnimeState = (props) => {
+  const [Anime, setAnime] = useState([]);
+
+  const GetPopular = async () => {
+    try {
+      const functionurl = `${url}/popular`;
+      const response = await fetch(functionurl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const PopularAnimeJson = await response.json();
+      console.log(PopularAnimeJson);
+      setAnime(PopularAnimeJson);
+    } catch (error) {
+      console.log(error)
+    }
+  };
+  const GetAllAnime = async () => {
+    try {
+      const functionurl = `${url}/animix/all`
+      const response = await fetch(functionurl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+      const AllAnimeJson = await response.json()
+      console.log(AllAnimeJson)
+      setAnime(AllAnimeJson)
+    } catch (error) {
+     console.log(error) 
+    }
+  }
   return (
     <>
-      <AnimeContext.Provider>{props.children}</AnimeContext.Provider>
+      <AnimeContext.Provider value={{ Anime , GetPopular , GetAllAnime}}>{props.children}</AnimeContext.Provider>
     </>
   );
 };

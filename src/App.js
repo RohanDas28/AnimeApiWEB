@@ -1,9 +1,12 @@
+import Home from "./Components/Home";
+import AnimeState from "./Context/AnimeState";
+
 function App() {
   return (
     <>
-      <div className="bg-black">
-        <p className="text-white">hello working?</p>
-      </div>
+      <AnimeState>
+        <Home></Home>
+      </AnimeState>
     </>
   );
 }
