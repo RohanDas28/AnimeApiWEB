@@ -3,9 +3,10 @@ import AnimeContext from "../Context/Animecontext";
 
 const Home = (props) => {
   const context = useContext(AnimeContext);
-  const { GetPopular , GetAllAnime} = context;
+  const { GetPopular , GetAllAnime , RecentAnimeReleases} = context;
   useEffect(() => {
-    GetPopular();
+    RecentAnimeReleases()
+    // GetPopular();
     // GetAllAnime()
     // eslint-disable-next-line
   }, []);

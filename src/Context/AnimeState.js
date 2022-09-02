@@ -37,9 +37,27 @@ const AnimeState = (props) => {
      console.log(error) 
     }
   }
+  const RecentAnimeReleases = async () => {
+    try {
+      const functionurl = `${url}/animix/recent-episodes`
+      const response = await fetch(functionurl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+      const RecentAnimeReleaseJson = await response.json()
+      console.log(RecentAnimeReleaseJson)
+      setAnime(RecentAnimeReleaseJson)
+    
+    } catch (error) {
+    console.log(error)  
+    }
+    
+  }
   return (
     <>
-      <AnimeContext.Provider value={{ Anime , GetPopular , GetAllAnime}}>{props.children}</AnimeContext.Provider>
+      <AnimeContext.Provider value={{ Anime , GetPopular , GetAllAnime , RecentAnimeReleases}}>{props.children}</AnimeContext.Provider>
     </>
   );
 };
