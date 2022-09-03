@@ -1,17 +1,22 @@
 import React, { useContext, useEffect } from "react";
 import AnimeContext from "../Context/Animecontext";
+import RecentRelease from "./RecentRelease";
 
 const Home = (props) => {
-  const context = useContext(AnimeContext);
-  const { GetPopular , GetAllAnime , RecentAnimeReleases} = context;
-  useEffect(() => {
-    RecentAnimeReleases()
-    // GetPopular();
-    // GetAllAnime()
-    // eslint-disable-next-line
-  }, []);
+  // const context = useContext(AnimeContext);
+  // const { GetPopular , GetAllAnime , RecentAnimeReleases} = context;
+  // useEffect(() => {
+  //   RecentAnimeReleases()
+  //   // GetPopular();
+  //   // GetAllAnime()
+  //   // eslint-disable-next-line
+  // }, []);
 
-  return <div>home</div>;
+  return (
+    <>
+      <RecentRelease></RecentRelease>
+    </>
+  );
 };
 
 export default Home;
