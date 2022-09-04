@@ -1,26 +1,22 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext , useEffect } from "react";
 import AnimeContext from "../Context/Animecontext";
-
-const RecentRelease = () => {
+const Popular = () => {
   const context = useContext(AnimeContext);
-  const { Anime, RecentAnimeReleases } = context;
-  useEffect(() => {
-    RecentAnimeReleases();
-    // GetPopular();
-    // GetAllAnime()
-    // eslint-disable-next-line
-  }, []);
-
+    const { Anime, GetPopularAnimes } = context;
+    useEffect(() => {
+        GetPopularAnimes()
+    }, [])
+    
   return (
     <>
       <div className="flex justify-center ">
-        <h2 className="text-2xl border-b-2 border-black w-44 ">
-          Recent Releases
+        <h2 className="text-2xl">
+            <p className="border-b-2 border-black">Trending </p>
         </h2>
       </div>
       <div className="flex  justify-center my-10">
         <div className="grid grid-cols-5 gap-10">
-          {Anime.map((animes) => {
+          {Anime.map((PopAnimes) => {
             return (
               <>
                 <div
@@ -29,21 +25,21 @@ const RecentRelease = () => {
                 >
                   <img
                     class="w-64 h-72 "
-                    src={animes.animeImg}
+                    src={PopAnimes.animeImg}
                     alt="Sunset in the mountains"
                   />
                   <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">
-                      {animes.episodeTitle}
+                      {PopAnimes.animeTitle}
                     </div>
                   </div>
                   <p className="text-center"></p>
                   <div class="px-6 pt-4 pb-2">
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                      EP: {animes.episodeNum}
+                      Score: {PopAnimes.score}
                     </span>
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                      Number of EPS: {animes.episodes}
+                      Views: {PopAnimes.views}
                     </span>
                     {/* <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                     #winter
@@ -59,4 +55,4 @@ const RecentRelease = () => {
   );
 };
 
-export default RecentRelease;
+export default Popular;

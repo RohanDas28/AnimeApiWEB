@@ -5,22 +5,22 @@ var url = "https://animeapi-demo.herokuapp.com";
 const AnimeState = (props) => {
   const [Anime, setAnime] = useState([]);
 
-  const GetPopular = async () => {
-    try {
-      const functionurl = `${url}/popular`;
-      const response = await fetch(functionurl, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const PopularAnimeJson = await response.json();
-      console.log(PopularAnimeJson);
-      setAnime(PopularAnimeJson);
-    } catch (error) {
-      console.log(error)
-    }
-  };
+  // const GetPopular = async () => {
+  //   try {
+  //     const functionurl = `${url}/popular`;
+  //     const response = await fetch(functionurl, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     const PopularAnimeJson = await response.json();
+  //     // console.log(PopularAnimeJson);
+  //     setAnime(PopularAnimeJson);
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // };
   const GetAllAnime = async () => {
     try {
       const functionurl = `${url}/animix/all`
@@ -31,10 +31,27 @@ const AnimeState = (props) => {
         },
       });
       const AllAnimeJson = await response.json()
-      console.log(AllAnimeJson)
+      // console.log(AllAnimeJson)
       setAnime(AllAnimeJson)
     } catch (error) {
      console.log(error) 
+    }
+  }
+  const GetPopularAnimes = async () => {
+    try {
+      const functionurl = `${url}/popular`
+      const response = await fetch(functionurl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+      const AllPopularAnime = await response.json()
+      console.log(AllPopularAnime)
+      setAnime(AllPopularAnime)
+
+    } catch (error) {
+      console.log(error)
     }
   }
   const RecentAnimeReleases = async () => {
@@ -47,7 +64,7 @@ const AnimeState = (props) => {
         },
       });
       const RecentAnimeReleaseJson = await response.json()
-      console.log(RecentAnimeReleaseJson)
+      // console.log(RecentAnimeReleaseJson)
       setAnime(RecentAnimeReleaseJson)
     
     } catch (error) {
@@ -57,7 +74,7 @@ const AnimeState = (props) => {
   }
   return (
     <>
-      <AnimeContext.Provider value={{ Anime , GetPopular , GetAllAnime , RecentAnimeReleases}}>{props.children}</AnimeContext.Provider>
+      <AnimeContext.Provider value={{ Anime  , GetAllAnime , RecentAnimeReleases , GetPopularAnimes}}>{props.children}</AnimeContext.Provider>
     </>
   );
 };

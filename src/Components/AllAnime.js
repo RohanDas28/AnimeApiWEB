@@ -5,13 +5,13 @@ const AllAnime = () => {
   const context = useContext(AnimeContext);
   const { Anime, GetAllAnime } = context;
   useEffect(() => {
-    GetAllAnime();
+    // GetAllAnime();
     // eslint-disable-next-line
   }, []);
   return <>
-    {Anime.map((AllAnimes) => {
+    {/* {Anime.map((AllAnimes) => {
     return <>1</>
-  })}
+  })} */}
   </>;
 };
 
