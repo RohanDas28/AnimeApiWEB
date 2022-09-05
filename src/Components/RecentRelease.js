@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import AnimeContext from "../Context/Animecontext";
-
+import "../CSS/ComponentsCSS/Grid.css"
 const RecentRelease = () => {
   const context = useContext(AnimeContext);
   const { Anime, RecentAnimeReleases } = context;
@@ -13,20 +13,18 @@ const RecentRelease = () => {
 
   return (
     <>
+
       <div className="flex justify-center ">
         <h2 className="text-2xl border-b-2 border-black w-44 ">
           Recent Releases
         </h2>
       </div>
-      <div className="flex  justify-center my-10">
-        <div className="grid grid-cols-5 gap-10">
+
+        <section className="my-4 flex flex-row justify-center flex-wrap ">
           {Anime.map((animes) => {
             return (
               <>
-                <div
-                  
-                  class=" w-64  rounded overflow-hidden shadow-md hover:scale-110 duration-300"
-                >
+                <div class="m-4 w-64  rounded overflow-hidden shadow-md hover:scale-110 duration-300">
                   <img
                     class="w-64 h-72 "
                     src={animes.animeImg}
@@ -53,8 +51,8 @@ const RecentRelease = () => {
               </>
             );
           })}
-        </div>
-      </div>
+        </section>
+      
     </>
   );
 };

@@ -1,28 +1,24 @@
-import React, { useContext , useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import AnimeContext from "../Context/Animecontext";
 const Popular = () => {
   const context = useContext(AnimeContext);
-    const { Anime, GetPopularAnimes } = context;
-    useEffect(() => {
-        GetPopularAnimes()
-    }, [])
-    
+  const { Anime, GetPopularAnimes } = context;
+  useEffect(() => {
+    GetPopularAnimes();
+  }, []);
+
   return (
     <>
       <div className="flex justify-center ">
         <h2 className="text-2xl">
-            <p className="border-b-2 border-black">Trending </p>
+          <p className="border-b-2 border-black">Trending </p>
         </h2>
       </div>
-      <div className="flex  justify-center my-10">
-        <div className="grid grid-cols-5 gap-10">
+        <div className="my-4 flex flex-row justify-center flex-wrap">
           {Anime.map((PopAnimes) => {
             return (
               <>
-                <div
-                  
-                  class=" w-64  rounded overflow-hidden shadow-md hover:scale-110 duration-300"
-                >
+                <div class="m-4 w-64  rounded overflow-hidden shadow-md hover:scale-110 duration-300">
                   <img
                     class="w-64 h-72 "
                     src={PopAnimes.animeImg}
@@ -50,7 +46,6 @@ const Popular = () => {
             );
           })}
         </div>
-      </div>
     </>
   );
 };
