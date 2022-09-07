@@ -12,8 +12,8 @@ function App() {
           <Nav />
           <Routes>
             <Route exact path="/" element={<Home></Home>} /> 
-            <Route exact path="/All" element={<AllAnime></AllAnime>} /> 
-            <Route exact path="/POPULAR" element={<Popular></Popular>} /> 
+            <Route exact path="all" element={<AllAnime></AllAnime>} /> 
+            <Route exact path="popular" element={<Popular></Popular>} /> 
           </Routes>
       </Router>
         </AnimeState>
