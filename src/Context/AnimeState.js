@@ -1,30 +1,15 @@
 import AnimeContext from "./Animecontext";
 
 import React, { useState } from "react";
-var url = "https://animeapi-demo.herokuapp.com";
-// var url = "http://localhost:4000";
+// var url = "https://animeapi-demo.herokuapp.com";
+var url = "http://localhost:4000";
 const AnimeState = (props) => {
   const [Anime, setAnime] = useState([]);
-
-  // const GetPopular = async () => {
-  //   try {
-  //     const functionurl = `${url}/popular`;
-  //     const response = await fetch(functionurl, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-  //     const PopularAnimeJson = await response.json();
-  //     // console.log(PopularAnimeJson);
-  //     setAnime(PopularAnimeJson);
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // };
+  const [Page, setPage] = useState(1)
+  const [Limit , setLimit] = useState(30)
   const GetAllAnime = async () => {
     try {
-      const functionurl = `${url}/animix/all`;
+      const functionurl = `${url}/9anime/all`;
       const response = await fetch(functionurl, {
         method: "GET",
         headers: {
@@ -32,7 +17,7 @@ const AnimeState = (props) => {
         },
       });
       const AllAnimeJson = await response.json();
-      // console.log(AllAnimeJson)
+      console.log(AllAnimeJson)
       setAnime(AllAnimeJson);
     } catch (error) {
       console.log(error);
@@ -48,7 +33,7 @@ const AnimeState = (props) => {
         },
       });
       const AllPopularAnime = await response.json();
-      console.log(AllPopularAnime);
+      // console.log(AllPopularAnime);
       setAnime(AllPopularAnime);
     } catch (error) {
       console.log(error);
