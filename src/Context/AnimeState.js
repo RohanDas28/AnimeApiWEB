@@ -1,12 +1,12 @@
 import AnimeContext from "./Animecontext";
 
 import React, { useState } from "react";
-// var url = "https://animeapi-demo.herokuapp.com";
-var url = "http://localhost:4000";
+var url = "https://lmaohost.herokuapp.com";
+// var url = "http://localhost:4000";
 const AnimeState = (props) => {
   const [Anime, setAnime] = useState([]);
-  const [Page, setPage] = useState(1)
-  const [Limit , setLimit] = useState(30)
+  // const [Page, setPage] = useState(1)
+  // const [Limit , setLimit] = useState(30)
   const GetAllAnime = async () => {
     try {
       const functionurl = `${url}/9anime/all`;
